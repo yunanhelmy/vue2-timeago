@@ -1,7 +1,7 @@
 <template>
   <span>
-    <span class="v-time-ago__text" v-if="tooltip" v-tooltip="options">{{timeago}}</span>
-    <span class="v-time-ago__text" v-else>{{timeago}}</span>
+    <span :class="this.class" v-if="tooltip" v-tooltip="options">{{timeago}}</span>
+    <span :class="this.class" v-else>{{timeago}}</span>
   </span>
 </template>
 
@@ -28,13 +28,17 @@ export default {
       type: Boolean,
       default: false,
     },
-    todo:{ 
+    todo:{
       type: Function,
        default: e => {},
     },
     tooltip:{
       type: [String, Boolean],
       default: false,
+    },
+    class:{
+      type: String,
+      default: 'v-time-ago__text'
     }
   },
 
@@ -83,7 +87,7 @@ export default {
   destroyed() {
      if(this.intervalId) clearInterval(this.intervalId);
   },
-  
+
 }
 </script>
 
@@ -208,4 +212,3 @@ export default {
   transition: opacity .15s;
 }
 </style>
-

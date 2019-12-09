@@ -1,7 +1,7 @@
 <template>
   <span>
-    <span :class="this.class" v-if="tooltip" v-tooltip="options">{{timeago}}</span>
-    <span :class="this.class" v-else>{{timeago}}</span>
+    <span :class="this.customClass" v-if="tooltip" v-tooltip="options">{{timeago}}</span>
+    <span :class="this.customClass" v-else>{{timeago}}</span>
   </span>
 </template>
 
@@ -36,7 +36,7 @@ export default {
       type: [String, Boolean],
       default: false,
     },
-    class:{
+    customClass:{
       type: String,
       default: 'v-time-ago__text'
     }
